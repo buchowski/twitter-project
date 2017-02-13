@@ -1,7 +1,9 @@
-const { PORT } = require('./config.json');
+let { PORT } = require('./config.json');
 const express = require('express');
 
 const app = express();
+
+PORT = PORT || 3000;
 
 app.set('view engine', 'ejs');
 
@@ -38,5 +40,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
+    console.log(`App listening on port ${PORT}`);
 });

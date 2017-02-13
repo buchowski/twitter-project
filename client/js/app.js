@@ -4,16 +4,16 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers/index';
 import { getBootstrappedData } from './services/data-service';
-import AppComponent from './containers/app-component';
+import AppContainer from './containers/app-container';
 
 let store = createStore(reducers);
 let bootstrappedData = getBootstrappedData();
 
-store.dispatch({ type: 'BOOTSTRAP', data: bootstrappedData })
+store.dispatch({ type: 'BOOTSTRAP', data: bootstrappedData });
 
 render(
-	<Provider store={store}>
-		<AppComponent />
+	<Provider store={ store }>
+		<AppContainer />
 	</Provider>,
     document.getElementById('root')
 );

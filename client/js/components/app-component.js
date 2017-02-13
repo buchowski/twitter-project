@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default function AppComponent() {
-	debugger;
+export default function AppComponent({ whatevers, onClick }) {
 	return (
 		<div>
-			<h1>so much fun</h1>
+			{ whatevers.map((whatever, i) => 
+				<div key={ i } onClick={ onClick.bind(this, whatever.description) }>{ JSON.stringify(whatever) }</div>
+			)}
 		</div>
 	)
 }

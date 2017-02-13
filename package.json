@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "browserify": "browserify -d client/js/app.js -o dist/app.js -t [ babelify --presets [ es2015 react ] ]"
+    "start": "watchify client/js/app.js -o dist/app.js -v -d -t [ babelify --presets [ es2015 react ] ]"
   },
   "author": "buchowski",
   "license": "MIT",
