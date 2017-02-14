@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import whatevers from './whatevers-reducer';
+import tweets from './tweets-reducer';
+import search from './search-reducer';
 
 export default combineReducers({
-	whatevers
+	tweets,
+	search
 });

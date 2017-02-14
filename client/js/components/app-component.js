@@ -1,11 +1,16 @@
 import React from 'react';
+import TweetComponent from './tweet-component';
+import SearchComponent from './search-component';
 
-export default function AppComponent({ whatevers, onClick }) {
+export default function AppComponent({ tweets, search, onClick, onInput }) {
 	return (
 		<div>
-			{ whatevers.map((whatever, i) => 
-				<div key={ i } onClick={ onClick.bind(this, whatever.description) }>{ JSON.stringify(whatever) }</div>
-			)}
+			<SearchComponent search={ search } onClick={ onClick } onInput={ onInput } />
+			<div id="tweets">
+				{ tweets.map((tweet, i) => 
+					<TweetComponent tweet={ tweet } key={ i} />
+				)}
+			</div>
 		</div>
 	)
 }

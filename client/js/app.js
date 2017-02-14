@@ -1,15 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import reducers from './reducers/index';
-import { getBootstrappedData } from './services/data-service';
+import { getBootstrappedTweets } from './services/data-service';
 import AppContainer from './containers/app-container';
+import { setTweets } from './actions/all-actions';
 
-let store = createStore(reducers);
-let bootstrappedData = getBootstrappedData();
+let store = createStore(reducers, applyMiddleware(thunk));
+let bootstrappedTweets = getBootstrappedTweets();
 
-store.dispatch({ type: 'BOOTSTRAP', data: bootstrappedData });
+store.dispatch(setTweets(bootstrappedTweets));
 
 render(
 	<Provider store={ store }>
