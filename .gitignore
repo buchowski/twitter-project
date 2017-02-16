@@ -2,3 +2,5 @@ env.json
 config.json
 dist/app.js
 node_modules
+tests/geckodriver
+tests/*.jar
